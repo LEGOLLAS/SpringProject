@@ -29,6 +29,12 @@ dependencies {
 	annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter-test:2.3.1'
+	
+	//jsp 연동 
+	//gradle 수정시 => refresh gradle project!!!! + server restart
+	implementation 'org.apache.tomcat.embed:tomcat-embed-jasper'
+  	implementation 'javax.servlet:jstl'
+
 }
 
 tasks.named('test') {

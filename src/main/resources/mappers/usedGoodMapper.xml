@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+ <!-- 실행할 레퍼지토리를 네임스페이스안에 추가 -->
+<mapper namespace="com.hong.spring.ex.database.repository.UsedGoodRepository">
+
+	<!-- 
+	1. 실행할 쿼리에 요소를 가진 태그를 생성하고 id 안에 실행할 메소드를 입력 
+	2. resultType에는 리턴 결과를 보여줄것을 넣는데 이게 generic 클래스 타입을 경우 해당 클래스를 추가
+	3. 태그안에 sql 실행문 작성
+	-->
+	<select id="selectUsesdGoodList" resultType="com.hong.spring.ex.database.domain.UsedGoods">
+		select `id`
+			, `sellerId`
+			, `title`
+			, `price`
+			, `description`
+			, `image`
+			, `createdAt`
+			, `updatedAt`
+		from 
+			`used_goods`
+	</select>  	
+  	
+</mapper>
