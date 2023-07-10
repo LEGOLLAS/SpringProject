@@ -16,4 +16,21 @@ public class ReviewService {
 		return reviewData;
 	}
 	
+	public int addReview(
+			int storeId, 
+			String menu, 
+			String userName,
+			double point, 
+			String review
+			) {
+		return reviewRepository.insertReview(storeId, menu, userName, point, review);
+	}
+	
+	
+	//객체로 전달된 데이터 저장
+	public int addReviewByObject(Review review) {
+		int count = reviewRepository.insertReviewByObject(review);
+		return count;
+	}
+	
 }

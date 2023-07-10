@@ -21,4 +21,51 @@
 		where
 			`id` = #{id}	
 	</select>
+	
+	<!-- insert는 무조건 resultType이 int로 고정이다 -->
+	<insert id="insertReview" parameterType="map">
+		
+		insert into `new_review`
+		(
+			`storeId`
+			,`menu`
+			,`userName`
+			,`point`
+			,`review`
+		)
+		value 
+		(
+			#{storeId},
+			#{menu},
+			#{userName},
+			#{point},
+			#{review}
+		)
+	</insert>
+	
+	
+	
+	<!-- 파라미터로 클래스의 멤버변수를 쓴다. -->
+	<insert id="insertReviewByObject" parameterType="com.hong.spring.ex.mybatis.domain.Review">
+		insert into `new_review`
+		(
+			`storeId`
+			,`menu`
+			,`userName`
+			,`point`
+			,`review`
+		)
+		value 
+		(
+			#{storeId},
+			#{menu},
+			#{userName},
+			#{point},
+			#{review}
+		)
+	</insert>
+	
+	
+	
+	
 </mapper>
