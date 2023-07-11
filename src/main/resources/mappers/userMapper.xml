@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+
+  <mapper namespace="com.hong.spring.ex.jsp.repository.UserRepository">
+  	<insert id="addUser" parameterType="map">
+  		insert into `new_user`
+  		(
+			`name`,
+			`yyyymmdd`,
+			`email`,
+			`introduce`
+  		) 
+  		value
+  		(
+  			#{name},
+  			#{birthday},
+  			#{email},
+  			#{introduce}
+  		)
+  	</insert>
+  
+ 	<select id="selectLastUser" resultType="com.hong.spring.ex.jsp.domain.User">
+ 		select 
+ 			`id`,
+ 			`name`,
+			`yyyymmdd`,
+			`email`,
+			`introduce`,
+ 			`createdAt`,
+ 			`updatedAt`
+ 		from 
+ 			`new_user`	
+ 		order by 
+ 			`id` desc 
+ 		limit 1
+ 	</select>
+  </mapper>
