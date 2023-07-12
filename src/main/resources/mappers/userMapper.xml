@@ -22,6 +22,24 @@
   			#{introduce}
   		)
   	</insert>
+  	
+  	<insert id="addUserByObject" parameterType="com.hong.spring.ex.jsp.domain.User"
+  	useGeneratedKeys="true" keyProperty="id">
+  		insert into `new_user`
+  		(
+			`name`,
+			`yyyymmdd`,
+			`email`,
+			`introduce`
+  		) 
+  		value
+  		(
+  			#{name},
+  			#{yyyymmdd},
+  			#{email},
+  			#{introduce}
+  		)
+  	</insert>
   
  	<select id="selectLastUser" resultType="com.hong.spring.ex.jsp.domain.User">
  		select 

@@ -23,16 +23,30 @@ public class UserController {
 	//@RequestMapping(path="/jsp/user/add", method=RequestMethod.POST)
 	//@GetMapping("/")
 	@PostMapping("/add")
-	@ResponseBody
+	//@ResponseBody
 	public String createUser(
 			@RequestParam("name") String name,
 			@RequestParam("birthday") String birthday,
 			@RequestParam("email") String email,
-			@RequestParam("introduce") String introduce
+			@RequestParam("introduce") String introduce,
+			Model model
 			) {
-		int count = userService.addUser(name, birthday, email, introduce);
+		//int count = userService.addUser(name, birthday, email, introduce);
 		
-		return "입력 성공 : " + count;
+		//insert한 ID값을 바로 select하기
+		User user = new User();
+		user.setName(name);
+		user.setYyyymmdd(birthday);
+		user.setEmail(email);
+		user.setIntroduce(introduce);
+		
+		int count = userService.addUserByObject(user);
+		
+		//모델을 먼저 세팅하기
+		//재사용하는 result key로 user 객체를 전달해준다.
+		model.addAttribute("result", user);
+		//return "입력 성공 : " + count;
+		return "jsp/userInfo";
 	}
 	
 	
