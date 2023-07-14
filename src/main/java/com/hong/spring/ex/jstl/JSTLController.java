@@ -1,6 +1,7 @@
 package com.hong.spring.ex.jstl;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
@@ -27,5 +28,18 @@ public class JSTLController {
 		model.addAttribute("fruitList", fruitList);
 		
 		return "jstl/ex02";
+	}
+	
+	@GetMapping("/jstl/ex03")
+	public String ex03(Model model) {
+		
+		Date date = new Date();
+		
+		model.addAttribute("now", date);
+		
+		String dateString = "2023/07/14 20:53:12";
+		model.addAttribute("dateString", dateString);
+		
+		return "jstl/ex03";
 	}
 }
