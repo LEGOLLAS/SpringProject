@@ -8,7 +8,7 @@
 </head>
 <body>
 <body>
-	<form method="post" action="/jsp/user/add">
+	<form method="get" action="/ajax/user/add">
 		<label>이름</label><input type="text" name="name"/><br>
 		<label>생년월일</label><input type="text" name="birthday"/><br>
 		<label>이메일</label><input type="text" name="email"/><br>
